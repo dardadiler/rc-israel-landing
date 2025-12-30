@@ -73,8 +73,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     if (!createBoxResponse.ok) {
       const errorText = await createBoxResponse.text();
-      console.error('Streak API error:', errorText);
-      return res.status(500).json({ error: 'Failed to create lead in CRM' });
+      console.error('Streak API error:', createBoxResponse.status, errorText);
+      return res.status(500).json({
+        error: 'Failed to create lead in CRM',
+        status: createBoxResponse.status,
+        details: errorText
+      });
     }
 
     const boxData = await createBoxResponse.json();
