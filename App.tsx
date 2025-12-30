@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import LeadBanner from './components/LeadBanner';
 import ProblemSolution from './components/ProblemSolution';
 import PersonalStatusUpdate from './components/PersonalStatusUpdate';
 import Services from './components/Services';
@@ -16,6 +17,7 @@ function App() {
     <div className="min-h-screen bg-white">
       <Header />
       <Hero />
+      <LeadBanner />
       <ProblemSolution />
       <PersonalStatusUpdate />
       <Services />

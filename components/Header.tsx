@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, MapPin, Phone } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import logo from '../לוגו RC.jpg';
 
 const Header: React.FC = () => {
@@ -21,20 +21,14 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-20">
 
           {/* Logo and Company Info */}
-          <div className="flex-shrink-0 flex items-center gap-4">
-            <img src={logo} alt="אזרחות רומנית ישראל" className="h-14 w-auto" />
-            <div className="hidden sm:flex flex-col">
-              <span className="text-xl font-bold text-gray-900">אזרחות רומנית ישראל</span>
-              <div className="flex items-center gap-4 text-sm text-gray-600">
-                <span className="flex items-center gap-1">
-                  <MapPin className="h-3 w-3" />
-                  תובל 22 רמת גן
-                </span>
-                <a href="tel:03-7322273" className="flex items-center gap-1 hover:text-primary">
-                  <Phone className="h-3 w-3" />
-                  03-7322273
-                </a>
-              </div>
+          <div className="flex-shrink-0 flex items-center gap-2 sm:gap-4">
+            <img src={logo} alt="אזרחות רומנית ישראל" className="h-10 sm:h-14 w-auto" />
+            <div className="flex flex-col">
+              <span className="text-base sm:text-xl font-bold text-gray-900">אזרחות רומנית ישראל</span>
+              <a href="tel:03-7322273" className="hidden sm:flex items-center gap-1 text-sm text-gray-600 hover:text-primary">
+                03-7322273
+                <Phone className="h-3 w-3" />
+              </a>
             </div>
           </div>
 
@@ -75,18 +69,26 @@ const Header: React.FC = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white border-b border-gray-100 absolute w-full shadow-lg">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div className="md:hidden bg-white border-b border-gray-100 absolute w-full shadow-lg animate-fade-in-up">
+          <div className="px-4 pt-2 pb-4 space-y-1">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50"
+                className="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
               </a>
             ))}
+            <a
+              href="tel:03-7322273"
+              className="flex items-center gap-2 px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50"
+              onClick={() => setIsOpen(false)}
+            >
+              <Phone className="h-4 w-4" />
+              03-7322273
+            </a>
             <a
               href="https://quotes.rc-israel.co.il/"
               target="_blank"
