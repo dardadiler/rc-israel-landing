@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 // Streak CRM API endpoint for creating boxes (leads)
-const STREAK_API_URL = 'https://api.streak.com/api/v1/pipelines';
+const STREAK_API_URL = 'https://www.streak.com/api/v1/pipelines';
 
 interface LeadData {
   name: string;
