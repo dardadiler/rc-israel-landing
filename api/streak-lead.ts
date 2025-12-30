@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-// Streak CRM API endpoint for creating boxes (leads)
-const STREAK_API_URL = 'https://www.streak.com/api/v1/pipelines';
+// Streak CRM API endpoint for creating boxes (leads) - v2 API required for boxes
+const STREAK_API_URL = 'https://www.streak.com/api/v2/pipelines';
 
 interface LeadData {
   name: string;
@@ -87,7 +87,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     if (leadData.email) {
       try {
         await fetch(
-          `https://api.streak.com/api/v1/boxes/${boxData.key}/contacts`,
+          `https://www.streak.com/api/v2/boxes/${boxData.key}/contacts`,
           {
             method: 'POST',
             headers: {
@@ -117,7 +117,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     if (Object.keys(fieldsToUpdate).length > 0) {
       try {
         await fetch(
-          `https://api.streak.com/api/v1/boxes/${boxData.key}/fields`,
+          `https://www.streak.com/api/v2/boxes/${boxData.key}/fields`,
           {
             method: 'POST',
             headers: {
